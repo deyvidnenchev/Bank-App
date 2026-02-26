@@ -1,0 +1,112 @@
+.calc-page {
+  padding: 3rem 0 5rem;
+  min-height: calc(100vh - 70px);
+  background: var(--bg);
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+igx-tabs {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+
+  ::ng-deep {
+    .igx-tabs__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: var(--primary);
+      border-radius: 16px 16px 0 0;
+    }
+    .igx-tabs__header-content {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+    .igx-tabs__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      &--selected {
+        color: #fff;
+        border-bottom-color: var(--accent);
+      }
+    }
+    .igx-tabs__content {
+      padding: 0;
+    }
+  }
+}
+
+.calc-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  @media (max-width: 768px) { flex-direction: column; }
+}
+
+.calc-form {
+  flex: 1;
+  max-width: 480px;
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  igx-input-group { width: 100%; }
+}
+
+.calc-btn {
+  width: 100%;
+  background: var(--secondary) !important;
+  color: #fff !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  margin-top: 0.5rem;
+}
+
+.result-card {
+  flex: 1;
+  align-self: flex-start;
+  border-left: 4px solid var(--secondary) !important;
+  igx-icon { color: var(--secondary) !important; font-size: 1.5rem !important; width: 1.5rem !important; height: 1.5rem !important; }
+}
+
+.result-highlight {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  span { font-size: 0.9rem; opacity: 0.85; }
+  strong { font-size: 2rem; font-weight: 800; margin-top: 0.25rem; }
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  &:last-child { border-bottom: none; }
+}
+
+.interest { color: #ef4444; font-weight: 600; }
+.success { color: #22c55e; font-weight: 600; }

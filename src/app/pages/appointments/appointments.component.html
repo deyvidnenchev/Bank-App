@@ -1,0 +1,99 @@
+<div class="appt-page">
+  <div class="container">
+    <div class="appt-grid">
+      <div class="appt-info">
+        <h1>Book an Appointment</h1>
+        <p>Schedule a meeting with one of our financial advisors. We're here to help you reach your goals.</p>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon"><igx-icon>access_time</igx-icon></div>
+            <div>
+              <strong>Business Hours</strong>
+              <p>Monday–Friday: 9AM–5PM<br>Saturday: 10AM–2PM</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><igx-icon>location_on</igx-icon></div>
+            <div>
+              <strong>Our Locations</strong>
+              <p>15+ branches nationwide<br>Video appointments available</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><igx-icon>phone</igx-icon></div>
+            <div>
+              <strong>Phone</strong>
+              <p>1-800-SECURE-BANK<br>Available 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="appt-form-card">
+        <div *ngIf="!submitted">
+          <h2>Schedule Your Appointment</h2>
+          <p class="form-subtitle">Fill out the form and we'll confirm within 24 hours</p>
+
+          <div class="form-group">
+            <igx-input-group>
+              <igx-prefix><igx-icon>person</igx-icon></igx-prefix>
+              <label igxLabel>Full Name *</label>
+              <input igxInput type="text" [(ngModel)]="name" name="name" />
+            </igx-input-group>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <igx-input-group>
+                <igx-prefix><igx-icon>email</igx-icon></igx-prefix>
+                <label igxLabel>Email Address *</label>
+                <input igxInput type="email" [(ngModel)]="email" name="email" />
+              </igx-input-group>
+            </div>
+            <div class="form-group">
+              <igx-input-group>
+                <igx-prefix><igx-icon>phone</igx-icon></igx-prefix>
+                <label igxLabel>Phone Number</label>
+                <input igxInput type="tel" [(ngModel)]="phone" name="phone" />
+              </igx-input-group>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <igx-select [(ngModel)]="service" placeholder="Select a Service *">
+              <igx-select-item *ngFor="let s of services" [value]="s">{{s}}</igx-select-item>
+            </igx-select>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <igx-input-group>
+                <igx-prefix><igx-icon>calendar_month</igx-icon></igx-prefix>
+                <label igxLabel>Preferred Date *</label>
+                <input igxInput type="date" [(ngModel)]="preferredDate" name="date" />
+              </igx-input-group>
+            </div>
+            <div class="form-group">
+              <igx-select [(ngModel)]="preferredTime" placeholder="Preferred Time">
+                <igx-select-item *ngFor="let t of times" [value]="t">{{t}}</igx-select-item>
+              </igx-select>
+            </div>
+          </div>
+
+          <button igxButton="contained" class="submit-btn" (click)="onSubmit()">
+            <igx-icon>event_available</igx-icon>
+            Book Appointment
+          </button>
+        </div>
+
+        <div *ngIf="submitted" class="success-msg">
+          <div class="success-icon"><igx-icon>check_circle</igx-icon></div>
+          <h2>Appointment Requested!</h2>
+          <p>Thank you, <strong>{{name}}</strong>! We've received your request for a <strong>{{service}}</strong> appointment on <strong>{{preferredDate}}</strong>.</p>
+          <p>You'll receive a confirmation email at <strong>{{email}}</strong> within 24 hours.</p>
+          <button igxButton="outlined" class="back-btn" (click)="reset()">Book Another Appointment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

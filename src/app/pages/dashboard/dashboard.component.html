@@ -1,0 +1,96 @@
+<div class="dashboard">
+  <div class="container">
+    <!-- Header -->
+    <div class="dash-header">
+      <div>
+        <h1>Welcome back, <span class="name">John Doe</span></h1>
+        <p class="subtitle">Here's your financial overview for today</p>
+      </div>
+      <div class="total-balance">
+        <span class="balance-label">Total Balance</span>
+        <span class="balance-value">{{totalBalance() | currency}}</span>
+      </div>
+    </div>
+
+    <!-- Accounts -->
+    <div class="grid-3 mb-3">
+      <igx-card *ngFor="let acc of accounts" class="account-card">
+        <igx-card-header>
+          <div class="acc-icon" [style.background]="acc.color">
+            <igx-icon>{{acc.icon}}</igx-icon>
+          </div>
+          <div>
+            <h3 igxCardHeaderTitle>{{acc.name}}</h3>
+            <p igxCardHeaderSubtitle>{{acc.number}}</p>
+          </div>
+        </igx-card-header>
+        <igx-card-content>
+          <div class="acc-balance" [style.color]="acc.color">{{acc.balance | currency}}</div>
+        </igx-card-content>
+        <igx-card-actions>
+          <button igxButton="flat" [style.color]="acc.color">View Details</button>
+          <button igxButton="flat" [style.color]="acc.color">Transfer</button>
+        </igx-card-actions>
+      </igx-card>
+    </div>
+
+    <div class="dash-grid">
+      <!-- Transactions -->
+      <igx-card class="transactions-card">
+        <igx-card-header>
+          <h3 igxCardHeaderTitle>Recent Transactions</h3>
+        </igx-card-header>
+        <igx-card-content>
+          <igx-list>
+            <igx-list-item *ngFor="let tx of transactions" class="tx-item">
+              <div class="tx-icon" [ngClass]="tx.type">
+                <igx-icon>{{tx.icon}}</igx-icon>
+              </div>
+              <div class="tx-details">
+                <span class="tx-desc">{{tx.description}}</span>
+                <span class="tx-date">{{tx.date | date:'MMM d, yyyy'}}</span>
+              </div>
+              <div class="tx-amount" [ngClass]="tx.type">
+                {{tx.amount > 0 ? '+' : ''}}{{tx.amount | currency}}
+              </div>
+            </igx-list-item>
+          </igx-list>
+        </igx-card-content>
+      </igx-card>
+
+      <div class="right-col">
+        <!-- Quick Actions -->
+        <igx-card class="quick-card">
+          <igx-card-header>
+            <h3 igxCardHeaderTitle>Quick Actions</h3>
+          </igx-card-header>
+          <igx-card-content>
+            <div class="qa-grid">
+              <button *ngFor="let a of quickActions" igxButton="outlined" class="qa-btn" [style.border-color]="a.color" [style.color]="a.color">
+                <igx-icon>{{a.icon}}</igx-icon>
+                {{a.label}}
+              </button>
+            </div>
+          </igx-card-content>
+        </igx-card>
+
+        <!-- Spending Summary -->
+        <igx-card class="spending-card">
+          <igx-card-header>
+            <h3 igxCardHeaderTitle>Monthly Spending</h3>
+            <p igxCardHeaderSubtitle>December 2024</p>
+          </igx-card-header>
+          <igx-card-content>
+            <div *ngFor="let s of spending" class="spending-row">
+              <div class="spending-meta">
+                <span>{{s.category}}</span>
+                <span>{{s.amount | currency}}</span>
+              </div>
+              <igx-linear-bar [value]="s.pct" [max]="100" type="default"></igx-linear-bar>
+            </div>
+          </igx-card-content>
+        </igx-card>
+      </div>
+    </div>
+  </div>
+</div>

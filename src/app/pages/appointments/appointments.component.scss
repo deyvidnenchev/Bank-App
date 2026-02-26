@@ -1,0 +1,126 @@
+.appt-page {
+  padding: 3rem 0 5rem;
+  min-height: calc(100vh - 70px);
+  background: var(--bg);
+}
+
+.appt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+.appt-info {
+  h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  > p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+}
+
+.info-items { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  strong { display: block; color: var(--primary); margin-bottom: 0.25rem; }
+  p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+}
+
+.info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  igx-icon { color: #fff !important; }
+}
+
+.appt-form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+}
+
+.form-subtitle {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  igx-input-group, igx-select { width: 100%; }
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--secondary) !important;
+  color: #fff !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+.success-msg {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  margin: 0 auto 1rem;
+  igx-icon {
+    color: #22c55e !important;
+    font-size: 4rem !important;
+    width: 4rem !important;
+    height: 4rem !important;
+  }
+}
+
+.success-msg h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.success-msg p {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.back-btn {
+  margin-top: 1.5rem;
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}

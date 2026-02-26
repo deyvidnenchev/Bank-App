@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #1a3a5c;
+  --secondary: #0077b6;
+  --accent: #00b4d8;
+  --bg: #f0f4f8;
+  --card-bg: #ffffff;
+  --text: #1a1a2e;
+  --text-light: #6b7280;
+  --border: #e2e8f0;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+}
+
+.text-center { text-align: center; }
+
+.btn-primary {
+  background: var(--secondary) !important;
+  color: #fff !important;
+}
+
+.btn-outline {
+  border: 2px solid var(--secondary) !important;
+  color: var(--secondary) !important;
+  background: transparent !important;
+}
+
+igx-card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+}
+
+/* Fix igx-tabs horizontal layout */
+igx-tabs .igx-tabs__header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  background: var(--primary);
+  border-radius: 12px 12px 0 0;
+}
+
+igx-tabs .igx-tabs__header-content {
+  flex: 1 !important;
+  overflow: hidden !important;
+}
+
+igx-tabs .igx-tabs__header-wr {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+igx-tabs .igx-tabs__item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem !important;
+  color: rgba(255,255,255,0.7) !important;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 3px solid transparent !important;
+  white-space: nowrap;
+  igx-icon { color: inherit !important; }
+}
+
+igx-tabs .igx-tabs__item--selected {
+  color: #fff !important;
+  border-bottom-color: var(--accent) !important;
+}
+
+igx-tabs .igx-tabs__header-button {
+  color: rgba(255,255,255,0.6) !important;
+  background: transparent !important;
+  border: none;
+  padding: 0.5rem !important;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 1000px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}

@@ -21,6 +21,7 @@
     "@igniteui/material-icons-extended": "^3.1.0",
     "igniteui-angular": "^17.2.27",
     "igniteui-theming": "^25.0.1",
+    "material-icons": "^1.13.14",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
