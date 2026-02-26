@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { NgFor, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { IgxCardModule, IgxButtonModule, IgxIconModule, IgxListModule, IgxLinearProgressBarComponent } from 'igniteui-angular';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgFor, NgClass, CurrencyPipe, DatePipe, RouterLink, IgxCardModule, IgxButtonModule, IgxIconModule, IgxListModule, IgxLinearProgressBarComponent],
+  imports: [NgFor, NgClass, CurrencyPipe, DatePipe, IgxCardModule, IgxButtonModule, IgxIconModule, IgxListModule, IgxLinearProgressBarComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

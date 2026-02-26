@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { NgIf, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { IgxNavbarModule, IgxButtonModule, IgxIconModule } from 'igniteui-angular';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgIf, NgFor, IgxNavbarModule, IgxButtonModule, IgxIconModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgFor, IgxNavbarModule, IgxButtonModule, IgxIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgIf, DecimalPipe, CurrencyPipe } from '@angular/common';
+import { NgIf, CurrencyPipe } from '@angular/common';
 import { IgxTabsModule, IgxInputGroupModule, IgxButtonModule, IgxCardModule, IgxIconModule } from 'igniteui-angular';
 
 @Component({
   selector: 'app-calculators',
   standalone: true,
-  imports: [FormsModule, NgIf, DecimalPipe, CurrencyPipe, IgxTabsModule, IgxInputGroupModule, IgxButtonModule, IgxCardModule, IgxIconModule],
+  imports: [FormsModule, NgIf, CurrencyPipe, IgxTabsModule, IgxInputGroupModule, IgxButtonModule, IgxCardModule, IgxIconModule],
   templateUrl: './calculators.component.html',
   styleUrl: './calculators.component.scss'
 })

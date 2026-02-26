@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { IgxCardModule, IgxButtonModule, IgxIconModule, IgxLinearProgressBarComponent } from 'igniteui-angular';
+import { IgxCardModule, IgxButtonModule, IgxIconModule } from 'igniteui-angular';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, RouterLink, IgxCardModule, IgxButtonModule, IgxIconModule, IgxLinearProgressBarComponent],
+  imports: [NgFor, RouterLink, IgxCardModule, IgxButtonModule, IgxIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
