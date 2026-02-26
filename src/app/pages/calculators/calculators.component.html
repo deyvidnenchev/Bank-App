@@ -1,0 +1,205 @@
+<div class="calc-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="section-title">Financial Calculators</h1>
+      <p class="section-subtitle">Make informed financial decisions with our powerful tools</p>
+    </div>
+
+    <igx-tabs>
+      <!-- Loan Calculator -->
+      <igx-tab-item>
+        <igx-tab-header>
+          <igx-icon igxTabHeaderIcon>payments</igx-icon>
+          <span igxTabHeaderLabel>Loan</span>
+        </igx-tab-header>
+        <igx-tab-content>
+          <div class="calc-content">
+            <div class="calc-form">
+              <h3>Loan Calculator</h3>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>attach_money</igx-icon></igx-prefix>
+                  <label igxLabel>Loan Amount ($)</label>
+                  <input igxInput type="number" [(ngModel)]="loanPrincipal" min="1000" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>percent</igx-icon></igx-prefix>
+                  <label igxLabel>Annual Interest Rate (%)</label>
+                  <input igxInput type="number" [(ngModel)]="loanRate" step="0.1" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>calendar_month</igx-icon></igx-prefix>
+                  <label igxLabel>Loan Term (months)</label>
+                  <input igxInput type="number" [(ngModel)]="loanTerm" min="1" />
+                </igx-input-group>
+              </div>
+              <button igxButton="contained" class="calc-btn" (click)="calcLoan()">Calculate</button>
+            </div>
+
+            <igx-card *ngIf="loanResult" class="result-card">
+              <igx-card-header>
+                <igx-icon igxCardHeaderThumbnail>calculate</igx-icon>
+                <h3 igxCardHeaderTitle>Your Loan Summary</h3>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="result-highlight">
+                  <span>Monthly Payment</span>
+                  <strong>{{loanResult.monthly | currency}}</strong>
+                </div>
+                <div class="result-row">
+                  <span>Total Payment</span>
+                  <span>{{loanResult.total | currency}}</span>
+                </div>
+                <div class="result-row">
+                  <span>Total Interest</span>
+                  <span class="interest">{{loanResult.interest | currency}}</span>
+                </div>
+              </igx-card-content>
+            </igx-card>
+          </div>
+        </igx-tab-content>
+      </igx-tab-item>
+
+      <!-- Mortgage Calculator -->
+      <igx-tab-item>
+        <igx-tab-header>
+          <igx-icon igxTabHeaderIcon>home</igx-icon>
+          <span igxTabHeaderLabel>Mortgage</span>
+        </igx-tab-header>
+        <igx-tab-content>
+          <div class="calc-content">
+            <div class="calc-form">
+              <h3>Mortgage Calculator</h3>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>home</igx-icon></igx-prefix>
+                  <label igxLabel>Home Price ($)</label>
+                  <input igxInput type="number" [(ngModel)]="homePrice" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>savings</igx-icon></igx-prefix>
+                  <label igxLabel>Down Payment ($)</label>
+                  <input igxInput type="number" [(ngModel)]="downPayment" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>percent</igx-icon></igx-prefix>
+                  <label igxLabel>Interest Rate (%)</label>
+                  <input igxInput type="number" [(ngModel)]="mortgageRate" step="0.1" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>calendar_month</igx-icon></igx-prefix>
+                  <label igxLabel>Loan Term (years)</label>
+                  <input igxInput type="number" [(ngModel)]="mortgageTerm" min="1" max="30" />
+                </igx-input-group>
+              </div>
+              <button igxButton="contained" class="calc-btn" (click)="calcMortgage()">Calculate</button>
+            </div>
+
+            <igx-card *ngIf="mortgageResult" class="result-card">
+              <igx-card-header>
+                <igx-icon igxCardHeaderThumbnail>house</igx-icon>
+                <h3 igxCardHeaderTitle>Your Mortgage Summary</h3>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="result-highlight">
+                  <span>Monthly Payment</span>
+                  <strong>{{mortgageResult.monthly | currency}}</strong>
+                </div>
+                <div class="result-row">
+                  <span>Total Payment</span>
+                  <span>{{mortgageResult.total | currency}}</span>
+                </div>
+                <div class="result-row">
+                  <span>Total Interest</span>
+                  <span class="interest">{{mortgageResult.interest | currency}}</span>
+                </div>
+              </igx-card-content>
+            </igx-card>
+          </div>
+        </igx-tab-content>
+      </igx-tab-item>
+
+      <!-- Retirement Calculator -->
+      <igx-tab-item>
+        <igx-tab-header>
+          <igx-icon igxTabHeaderIcon>beach_access</igx-icon>
+          <span igxTabHeaderLabel>Retirement</span>
+        </igx-tab-header>
+        <igx-tab-content>
+          <div class="calc-content">
+            <div class="calc-form">
+              <h3>Retirement Calculator</h3>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>person</igx-icon></igx-prefix>
+                  <label igxLabel>Current Age</label>
+                  <input igxInput type="number" [(ngModel)]="currentAge" min="18" max="80" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>elderly</igx-icon></igx-prefix>
+                  <label igxLabel>Retirement Age</label>
+                  <input igxInput type="number" [(ngModel)]="retirementAge" min="40" max="90" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>account_balance</igx-icon></igx-prefix>
+                  <label igxLabel>Current Savings ($)</label>
+                  <input igxInput type="number" [(ngModel)]="currentSavings" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>add_circle</igx-icon></igx-prefix>
+                  <label igxLabel>Monthly Contribution ($)</label>
+                  <input igxInput type="number" [(ngModel)]="monthlyContrib" min="0" />
+                </igx-input-group>
+              </div>
+              <div class="form-group">
+                <igx-input-group>
+                  <igx-prefix><igx-icon>trending_up</igx-icon></igx-prefix>
+                  <label igxLabel>Expected Annual Return (%)</label>
+                  <input igxInput type="number" [(ngModel)]="annualReturn" step="0.5" min="0" />
+                </igx-input-group>
+              </div>
+              <button igxButton="contained" class="calc-btn" (click)="calcRetirement()">Calculate</button>
+            </div>
+
+            <igx-card *ngIf="retirementResult" class="result-card">
+              <igx-card-header>
+                <igx-icon igxCardHeaderThumbnail>beach_access</igx-icon>
+                <h3 igxCardHeaderTitle>Your Retirement Outlook</h3>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="result-highlight">
+                  <span>Projected Savings at Retirement</span>
+                  <strong>{{retirementResult.projected | currency:'USD':'symbol':'1.0-0'}}</strong>
+                </div>
+                <div class="result-row">
+                  <span>Total Contributions</span>
+                  <span>{{retirementResult.contributions | currency:'USD':'symbol':'1.0-0'}}</span>
+                </div>
+                <div class="result-row">
+                  <span>Investment Growth</span>
+                  <span class="success">{{retirementResult.growth | currency:'USD':'symbol':'1.0-0'}}</span>
+                </div>
+              </igx-card-content>
+            </igx-card>
+          </div>
+        </igx-tab-content>
+      </igx-tab-item>
+    </igx-tabs>
+  </div>
+</div>

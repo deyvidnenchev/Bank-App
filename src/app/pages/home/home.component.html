@@ -1,0 +1,97 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">Trusted Since 1985</span>
+      <h1>Your Financial Future,<br><span class="accent">Secured</span></h1>
+      <p>Banking reimagined for the modern world. Safe, smart, and always working for you.</p>
+      <div class="hero-actions">
+        <button igxButton="contained" class="btn-primary" routerLink="/login">Get Started</button>
+        <button igxButton="outlined" class="btn-outline" routerLink="/education">Learn More</button>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="hero-card-preview">
+        <div class="card-chip"></div>
+        <div class="card-number">•••• •••• •••• 4821</div>
+        <div class="card-footer">
+          <span>JOHN DOE</span>
+          <span>SecureBank</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interest Rates -->
+<section class="section rates-section">
+  <div class="container">
+    <h2 class="section-title text-center">Today's Interest Rates</h2>
+    <p class="section-subtitle text-center">Competitive rates designed to grow your wealth</p>
+    <div class="grid-4">
+      <igx-card *ngFor="let r of rates" class="rate-card">
+        <igx-card-header>
+          <igx-icon [style.color]="r.color">{{r.icon}}</igx-icon>
+          <h3 igxCardHeaderTitle>{{r.label}}</h3>
+        </igx-card-header>
+        <igx-card-content>
+          <div class="rate-value" [style.color]="r.color">{{r.rate}}</div>
+          <div class="rate-label">APY</div>
+        </igx-card-content>
+        <igx-card-actions>
+          <button igxButton="flat" [style.color]="r.color" routerLink="/appointments">Learn More</button>
+        </igx-card-actions>
+      </igx-card>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Access -->
+<section class="section quick-section">
+  <div class="container">
+    <h2 class="section-title text-center">Quick Access</h2>
+    <p class="section-subtitle text-center">Everything you need, right at your fingertips</p>
+    <div class="grid-4">
+      <a *ngFor="let a of quickActions" [routerLink]="a.route" class="quick-action-card">
+        <div class="qa-icon">
+          <igx-icon>{{a.icon}}</igx-icon>
+        </div>
+        <span>{{a.label}}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section stats-section">
+  <div class="container">
+    <div class="grid-4">
+      <div *ngFor="let s of stats" class="stat-item">
+        <div class="stat-value">{{s.value}}</div>
+        <div class="stat-label">{{s.label}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="section news-section">
+  <div class="container">
+    <h2 class="section-title text-center">Financial News</h2>
+    <p class="section-subtitle text-center">Stay informed with the latest market updates</p>
+    <div class="grid-3">
+      <igx-card *ngFor="let article of news" class="news-card">
+        <igx-card-header>
+          <span class="news-category">{{article.category}}</span>
+          <h3 igxCardHeaderTitle>{{article.title}}</h3>
+          <p igxCardHeaderSubtitle>{{article.date}}</p>
+        </igx-card-header>
+        <igx-card-content>
+          <p>{{article.summary}}</p>
+        </igx-card-content>
+        <igx-card-actions>
+          <button igxButton="flat" style="color: var(--secondary)">Read More</button>
+        </igx-card-actions>
+      </igx-card>
+    </div>
+  </div>
+</section>

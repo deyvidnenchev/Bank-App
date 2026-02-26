@@ -1,0 +1,83 @@
+<header class="site-header">
+  <div class="container nav-container">
+    <a class="logo" routerLink="/">
+      <igx-icon>account_balance</igx-icon>
+      <span>SecureBank</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a *ngFor="let link of navLinks"
+         [routerLink]="link.route"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: link.route === '/'}"
+         (click)="closeMenu()">
+        {{link.label}}
+      </a>
+      <a routerLink="/login" class="nav-login-mobile" (click)="closeMenu()">Login</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a routerLink="/login">
+        <button igxButton="outlined" class="login-btn">
+          <igx-icon>person</igx-icon>
+          Login
+        </button>
+      </a>
+      <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <igx-icon>account_balance</igx-icon>
+          SecureBank
+        </div>
+        <p>Banking you can trust since 1985. Member FDIC. Equal Housing Lender.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><igx-icon>alternate_email</igx-icon></a>
+          <a href="#" aria-label="LinkedIn"><igx-icon>work</igx-icon></a>
+          <a href="#" aria-label="Facebook"><igx-icon>people</igx-icon></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a routerLink="/">Checking Accounts</a>
+        <a routerLink="/">Savings Accounts</a>
+        <a routerLink="/calculators">Mortgages</a>
+        <a routerLink="/calculators">Personal Loans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a routerLink="/education">Financial Education</a>
+        <a routerLink="/calculators">Calculators</a>
+        <a routerLink="/appointments">Book Appointment</a>
+        <a routerLink="/">Branch Locator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p>1-800-SECURE-BANK</p>
+        <p>support&#64;securebank.com</p>
+        <p>Mon-Fri: 8AM-8PM EST</p>
+        <p>Sat-Sun: 9AM-5PM EST</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 SecureBank. All rights reserved. Member FDIC. Deposits insured up to $250,000.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,130 @@
+.dashboard {
+  padding: 2rem 0 4rem;
+  background: var(--bg);
+  min-height: calc(100vh - 70px);
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    .name { color: var(--secondary); }
+  }
+  .subtitle { color: var(--text-light); margin-top: 0.25rem; }
+}
+
+.total-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+}
+
+.balance-label { font-size: 0.85rem; opacity: 0.8; }
+.balance-value { font-size: 1.75rem; font-weight: 800; margin-top: 0.25rem; }
+
+.mb-3 { margin-bottom: 1.5rem; }
+
+.account-card {
+  .acc-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    igx-icon { color: #fff !important; }
+  }
+}
+
+.acc-balance {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.5rem;
+  @media (max-width: 1024px) { grid-template-columns: 1fr; }
+}
+
+.transactions-card {
+  igx-list-item { display: flex !important; align-items: center; }
+}
+
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+
+.tx-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  &.credit { background: rgba(34, 197, 94, 0.15); igx-icon { color: #22c55e !important; } }
+  &.debit { background: rgba(239, 68, 68, 0.15); igx-icon { color: #ef4444 !important; } }
+}
+
+.tx-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .tx-desc { font-weight: 600; color: var(--text); }
+  .tx-date { font-size: 0.8rem; color: var(--text-light); }
+}
+
+.tx-amount {
+  font-weight: 700;
+  font-size: 1rem;
+  &.credit { color: #22c55e; }
+  &.debit { color: #ef4444; }
+}
+
+.right-col { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.qa-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem 0.5rem !important;
+  border-radius: 10px !important;
+  igx-icon { font-size: 1.5rem !important; width: 1.5rem !important; height: 1.5rem !important; }
+}
+
+.spending-row {
+  margin-bottom: 1rem;
+}
+
+.spending-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  span:last-child { color: var(--text-light); }
+}

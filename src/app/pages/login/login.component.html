@@ -1,0 +1,84 @@
+<div class="login-page">
+  <div class="login-left">
+    <div class="login-left-content">
+      <div class="logo">
+        <igx-icon>account_balance</igx-icon>
+        SecureBank
+      </div>
+      <h2>Banking you can trust</h2>
+      <p>Secure, fast, and reliable banking services for over 250,000 customers worldwide.</p>
+      <ul class="features">
+        <li><igx-icon>check_circle</igx-icon> 256-bit SSL Encryption</li>
+        <li><igx-icon>check_circle</igx-icon> Multi-Factor Authentication</li>
+        <li><igx-icon>check_circle</igx-icon> 24/7 Fraud Monitoring</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="login-right">
+    <div class="login-box">
+      <div *ngIf="!showMfa">
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Sign in to your SecureBank account</p>
+
+        <div class="form-group">
+          <igx-input-group>
+            <igx-prefix><igx-icon>email</igx-icon></igx-prefix>
+            <label igxLabel>Email Address</label>
+            <input igxInput type="email" [(ngModel)]="email" name="email" autocomplete="email" />
+          </igx-input-group>
+        </div>
+
+        <div class="form-group">
+          <igx-input-group>
+            <igx-prefix><igx-icon>lock</igx-icon></igx-prefix>
+            <label igxLabel>Password</label>
+            <input igxInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" autocomplete="current-password" />
+            <igx-suffix>
+              <igx-icon style="cursor:pointer" (click)="showPassword=!showPassword">
+                {{showPassword ? 'visibility_off' : 'visibility'}}
+              </igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+        </div>
+
+        <div class="form-row">
+          <igx-checkbox [(ngModel)]="rememberMe">Remember me</igx-checkbox>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button igxButton="contained" class="login-btn" (click)="onLogin()">
+          Sign In
+        </button>
+
+        <p class="signup-link">
+          Don't have an account? <a routerLink="/appointments">Sign Up</a>
+        </p>
+      </div>
+
+      <div *ngIf="showMfa" class="mfa-section">
+        <div class="mfa-icon">
+          <igx-icon>security</igx-icon>
+        </div>
+        <h1>Verify Identity</h1>
+        <p class="subtitle">Enter the 6-digit code sent to your registered device</p>
+
+        <div class="form-group">
+          <igx-input-group>
+            <igx-prefix><igx-icon>dialpad</igx-icon></igx-prefix>
+            <label igxLabel>Authentication Code</label>
+            <input igxInput type="text" [(ngModel)]="mfaCode" name="mfaCode" maxlength="6" placeholder="000000" />
+          </igx-input-group>
+        </div>
+
+        <button igxButton="contained" class="login-btn" (click)="onMfaSubmit()">
+          Verify & Sign In
+        </button>
+
+        <p class="signup-link">
+          <a href="#" (click)="showMfa=false;$event.preventDefault()">← Back to Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
